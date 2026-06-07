@@ -92,3 +92,43 @@ int main()
     
     return 0;
 }
+
+/*******************************************************************************/
+/* Напишите реализацию функции int atoi (const char *str); преобразования строки в число */
+/*******************************************************************************/
+#include <iostream>
+
+int atoi (const char *str)
+{
+   int sign = 1;
+   int i = 0;
+   int number = 0;
+   int digit = 0;
+   
+   if(str[i] == '-')
+   {
+       sign = -1;
+   }
+   
+   while (str[i]>='0' && str[i]<='9')
+   {
+       digit = str[i]-'0';
+       
+       number = number*10 +digit;
+       i++;
+   }
+   
+    return number * sign;   
+}
+
+int main()
+{
+
+    const char * str = "12345";
+    
+    int num = atoi(str);
+    std::cout<<num<<std::endl;
+    
+
+    return 0;
+}
