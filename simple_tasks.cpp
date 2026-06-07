@@ -132,3 +132,65 @@ int main()
 
     return 0;
 }
+
+
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+Для структуры типа односвязный список напишите функцию вставки элемента.
+*******************************************************************************/
+
+
+
+#include <iostream>
+
+ struct Node{
+     
+     int data;
+     Node * next;
+     
+     Node(int new_data) : data {new_data}, next {nullptr} {};
+ };
+ 
+ bool Insert(Node* node, int data)
+ {
+     bool res = false;
+     
+     if(node!= nullptr)
+     {
+         Node * save_next = node->next;
+         
+         Node * obj  = new Node(data);
+         
+         node->next = obj;
+         obj->next = save_next;
+         
+         res = true;
+         
+     }
+     
+     return res;
+ }
+
+int main()
+{
+
+    Node * head = new Node(0);
+    head->next = new Node(2);
+    
+    Insert(head, 1);
+    
+    Node * curr = head;
+    while (curr != nullptr)
+    {
+        std::cout<<curr->data<<std::endl;
+        curr = curr->next;
+    }
+    
+    
+
+    return 0;
+}
